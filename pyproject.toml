@@ -11,6 +11,7 @@ python = "^3.11"
 hubspot-api-client = "^9.0.0"
 aws-lambda-powertools = "^3.0.0"
 botocore = "^1.35.31"
+boto3 = "^1.35.31"
 
 [build-system]
 requires = ["poetry-core"]
