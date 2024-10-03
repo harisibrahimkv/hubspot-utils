@@ -4,17 +4,15 @@ from aws_lambda_powertools.utilities.parameters import SecretsProvider
 
 from .logger import Logger
 
+REGION = "eu-west-1"
+
 
 class AppConfig:
-    def __init__(
-        self, brand=None, region="eu-west-1", secret_store_name=None, secrets=None
-    ):
-        self.brand = brand
-        self.region = region
+    def __init__(self, secret_store_name=None, secrets=None):
         self.secrets = secrets
         self.secret_store_name = secret_store_name
         self.log = Logger.get_logger()
-        self.boto_config = Config(region_name=region)
+        self.boto_config = Config(region_name=REGION)
         self.secrets_provider = SecretsProvider(config=self.boto_config)
 
     def get_secrets(self, max_age=0):
